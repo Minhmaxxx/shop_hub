@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "770853212778",
+    "project_id": "shophub-48c54",
+    "storage_bucket": "shophub-48c54.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:770853212778:android:e84fd679e5cf4c67e7f013",
+        "android_client_info": {
+          "package_name": "com.example.shop_hub"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC-K_LCJZgxISrvsf29Qqcrpmdjw7B3ves"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

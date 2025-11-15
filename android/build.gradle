@@ -4,7 +4,12 @@ allprojects {
         mavenCentral()
     }
 }
-
+buildscript {
+    dependencies {
+        // Thêm dòng này
+        classpath 'com.google.gms:google-services:4.4.0'
+    }
+}
 rootProject.buildDir = "../build"
 subprojects {
     project.buildDir = "${rootProject.buildDir}/${project.name}"
