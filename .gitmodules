@@ -1,0 +1,3 @@
+[submodule "shop_hub_backend"]
+	path = shop_hub_backend
+	url = https://github.com/Minhmaxxx/shop_hub_backend.git
