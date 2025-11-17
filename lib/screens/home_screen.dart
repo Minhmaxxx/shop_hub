@@ -17,10 +17,12 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   final TextEditingController _searchController = TextEditingController();
+  final ScrollController _categoryController = ScrollController();
 
   @override
   void dispose() {
     _searchController.dispose();
+    _categoryController.dispose();
     super.dispose();
   }
 
@@ -138,45 +140,82 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
 
-          // Category Tabs
-          Container(
-            height: 50,
-            padding: const EdgeInsets.symmetric(horizontal: 16),
-            child: ListView.builder(
-              scrollDirection: Axis.horizontal,
-              itemCount: productProvider.categories.length,
-              itemBuilder: (context, index) {
-                final category = productProvider.categories[index];
-                final isSelected =
-                    category == productProvider.selectedCategory;
+          // Category Tabs with horizontal drag + arrows
+          SizedBox(
+            height: 56,
+            child: Row(
+              children: [
+                // Left arrow
+                IconButton(
+                  icon: const Icon(Icons.chevron_left),
+                  onPressed: () {
+                    _categoryController.animateTo(
+                      (_categoryController.offset - 160).clamp(
+                          0.0, _categoryController.position.maxScrollExtent),
+                      duration: const Duration(milliseconds: 300),
+                      curve: Curves.easeOut,
+                    );
+                  },
+                ),
+                Expanded(
+                  child: SingleChildScrollView(
+                    controller: _categoryController,
+                    scrollDirection: Axis.horizontal,
+                    physics: const BouncingScrollPhysics(),
+                    padding: const EdgeInsets.symmetric(horizontal: 8),
+                    child: Row(
+                      children:
+                          List.generate(productProvider.categories.length, (i) {
+                        final category = productProvider.categories[i];
+                        final isSelected =
+                            category == productProvider.selectedCategory;
 
-                return Padding(
-                  padding: const EdgeInsets.only(right: 8),
-                  child: ChoiceChip(
-                    label: Text(category),
-                    selected: isSelected,
-                    onSelected: (selected) {
-                      if (selected) {
-                        productProvider.filterByCategory(category);
-                      }
-                    },
-                    backgroundColor: Colors.white,
-                    selectedColor: Colors.black87,
-                    labelStyle: TextStyle(
-                      color: isSelected ? Colors.white : Colors.black87,
-                      fontWeight:
-                          isSelected ? FontWeight.bold : FontWeight.normal,
+                        return Padding(
+                          padding: const EdgeInsets.only(right: 8),
+                          child: ChoiceChip(
+                            label: Text(category),
+                            selected: isSelected,
+                            onSelected: (selected) {
+                              if (selected) {
+                                productProvider.filterByCategory(category);
+                              }
+                            },
+                            backgroundColor: Colors.white,
+                            selectedColor: Colors.black87,
+                            labelStyle: TextStyle(
+                              color: isSelected ? Colors.white : Colors.black87,
+                              fontWeight: isSelected
+                                  ? FontWeight.bold
+                                  : FontWeight.normal,
+                            ),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20),
+                              side: BorderSide(
+                                color: isSelected
+                                    ? Colors.black87
+                                    : Colors.grey[300]!,
+                              ),
+                            ),
+                            padding: const EdgeInsets.symmetric(horizontal: 16),
+                          ),
+                        );
+                      }),
                     ),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20),
-                      side: BorderSide(
-                        color: isSelected ? Colors.black87 : Colors.grey[300]!,
-                      ),
-                    ),
-                    padding: const EdgeInsets.symmetric(horizontal: 16),
                   ),
-                );
-              },
+                ),
+                // Right arrow
+                IconButton(
+                  icon: const Icon(Icons.chevron_right),
+                  onPressed: () {
+                    _categoryController.animateTo(
+                      (_categoryController.offset + 160).clamp(
+                          0.0, _categoryController.position.maxScrollExtent),
+                      duration: const Duration(milliseconds: 300),
+                      curve: Curves.easeOut,
+                    );
+                  },
+                ),
+              ],
             ),
           ),
 
