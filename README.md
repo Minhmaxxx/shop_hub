@@ -50,7 +50,7 @@ ShopHub là một ứng dụng thương mại điện tử mẫu viết bằng F
    - Thêm `google-services.json` (Android) vào `android/app/`
    - Thêm `GoogleService-Info.plist` (iOS) vào `ios/Runner/`
    - Hoặc chạy `flutterfire configure` để tạo `lib/firebase_options.dart` (project đã chứa file mẫu).
-
+    
 5. Chạy app:
    - `flutter run` (kết nối thiết bị hoặc emulator)
 
@@ -59,7 +59,7 @@ App Screenshots
 
 | Login | Home | Profile |
 |:------:|:------:|:------:|
-| <img src="https://github.com/user-attachments/assets/656cb28a-6ef1-4cae-990a-489ade0b0ff" width="180"/> | <img src="https://github.com/user-attachments/assets/59c9e69f-0de1-4840-a34b-7132ab615b41" width="180"/> | <img src="https://github.com/user-attachments/assets/d3bdcf7e-74ff-4457-85fa-13ecde4e8539" width="180"/> |
+| <img src="https://github.com/user-attachments/assets/82f1eb54-5e5c-467b-9577-5a8aa36f7992" width="180"/> | <img src="https://github.com/user-attachments/assets/59c9e69f-0de1-4840-a34b-7132ab615b41" width="180"/> | <img src="https://github.com/user-attachments/assets/d3bdcf7e-74ff-4457-85fa-13ecde4e8539" width="180"/> |
 
 | Cart | Pay1 | Pay2 |
 |:------:|:------:|:------:|
