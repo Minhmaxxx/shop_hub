@@ -56,9 +56,6 @@ ShopHub là một ứng dụng thương mại điện tử mẫu viết bằng F
 
 ---
 App Screenshots
-<img width="720" height="1600" alt="image" src="https://github.com/user-attachments/assets/baa1e46c-e812-44e4-853e-c3ade70d79e1" />
-<img width="720" height="1600" alt="image" src="https://github.com/user-attachments/assets/a0398221-5376-4f2a-9ec1-434bc81b1c2f" />
-<img width="720" height="1600" alt="image" src="https://github.com/user-attachments/assets/477818d8-926a-4dcd-96ab-4751475d8fd4" />
 
 | Login | Home | Profile |
 |:------:|:------:|:------:|
